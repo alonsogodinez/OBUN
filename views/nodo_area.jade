@@ -1,0 +1,68 @@
+extends layout
+block content
+
+  .jumbotron
+    .container
+      - if (area.id == 1)
+        img.center-block.img-responsive.img-jumbotron(src="/images/bienestarsaludable.jpeg")
+
+      - if (area.id == 2)
+        img.center-block.img-responsive.img-jumbotron(src="/images/bienestarpsicologico.jpg")
+      - if (area.id == 3)
+        img.center-block.img-responsive.img-jumbotron(src="/images/apoyosocial.png")
+      h1.title-nodo= area.nombre
+      p.pb= area.descripcion
+      h3.title-row2 Jefe de área
+      p.pl.pb= area.jefe
+      h3.title-row2 Teléfono
+      p.pl= area.telefono
+
+
+  .container.pb
+
+    .row
+      - if( area.Servicios.length !=0)
+        h2.title-row-inverse Servicios
+      each servicio,index in area.Servicios
+        .col-md-4.pb
+          //- if (index % 3 == 0)
+          //  img.img-col(src="/images/bienestarsaludable.jpeg")
+          //- if (index % 3 == 1)
+          //  img.img-col(src="/images/bienestarpsicologico.jpg")
+          //- if (index % 3 == 2)
+          //  img.img-col(src="/images/apoyosocial.png")
+          img.img-col(src="/images/#{servicio.imagen}")
+          h3.title-subnodo= servicio.nombre
+          p.pb-small= servicio.descripcion
+          p: a.btn.btn-lg.btn-default(href="/servicios/#{servicio.id}") Ver mas »
+    .row
+      - if( area.Becas.length !=0)
+        h2.title-row-inverse Becas
+      each beca,index in area.Becas
+        .col-md-4.pb
+          //- if (index % 3 == 0)
+          //  img.img-col(src="/images/bienestarsaludable.jpeg")
+          //- if (index % 3 == 1)
+          //  img.img-col(src="/images/bienestarpsicologico.jpg")
+          //- if (index % 3 == 2)
+          //  img.img-col(src="/images/apoyosocial.png")
+          img.img-col(src="/images/#{beca.imagen}")
+          h3.title-subnodo= beca.nombre
+          p.pb-small= beca.beneficios
+          p: a.btn.btn-lg.btn-default(href="/becas/#{beca.id}") Ver mas »
+
+    .row
+      - if( area.FondoApoyos.length !=0)
+        h2.title-row-inverse Fondos de Apoyo
+      each fondo,index in area.FondoApoyos
+        .col-md-4.pb
+          //- if (index % 3 == 0)
+          //  img.img-col(src="/images/bienestarsaludable.jpeg")
+          //- if (index % 3 == 1)
+          //  img.img-col(src="/images/bienestarpsicologico.jpg")
+          //- if (index % 3 == 2)
+          //  img.img-col(src="/images/apoyosocial.png")
+          img.img-col(src="/images/#{fondo.imagen}")
+          h3.title-subnodo= fondo.nombre
+          p.pb-small= fondo.beneficios
+          p: a.btn.btn-lg.btn-default(href="/fondos-de-apoyo/#{fondo.id}") Ver mas »

@@ -1,0 +1,20 @@
+extends layout
+block content
+  .jumbotron
+    .container
+      img.center-block.img-responsive.img-jumbotron(src="/images/#{beca.imagen}")
+      h1.title-nodo= beca.nombre
+      h3.title-row2 Beneficios
+      p.pl.pb= beca.beneficios
+      h3.title-row2 Requisitos
+      p.pl.pb= beca.requisitos
+      h3.title-row2 Tipo de beca
+      p.pl.pb= beca.tipo_beca
+
+      h3.title-row2 Área encargada
+      - if( beca.AreaId == 1)
+        a.grande.pl(href="/bienestar-saludable") #{beca.Area.nombre}
+      - if( beca.AreaId == 2)
+        a.grande.pl(href="/bienestar-psicologico") #{beca.Area.nombre}
+      - if( beca.AreaId == 3)
+        a.grande.pl(href="/bienestar-social") #{beca.Area.nombre}

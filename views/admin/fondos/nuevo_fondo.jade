@@ -1,0 +1,23 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Nuevo fondo
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",required)
+      .form-group
+        label Beneficios
+        textarea.form-control(type="text",name="beneficios", required)
+      .form-group
+        label Requisitos
+        textarea.form-control(type="text",name="requisitos", required)
+      .form-group
+        label Modalidad de Atención
+        input.form-control(type="text",name="modalidad_atencion", required)
+      .form-group
+        label Area
+        input.form-control(type="number",name="area_id")
+      button.btn.btn-lg.btn-success(type="submit") Registrar Fondo
+      a.btn.btn-lg.btn-danger(href="/admin/fondos") Volver

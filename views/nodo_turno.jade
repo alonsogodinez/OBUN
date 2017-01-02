@@ -1,0 +1,21 @@
+extends layout
+block content
+  .jumbotron
+    .container
+      h1.title-nodo= 'Turno ' + turno.nombre
+      h3.title-row Horario
+      p.pl #{turno.hora_inicio} - #{turno.hora_fin}
+
+      h3.title-row Servicios disponibles en este horario
+      ul
+        each servicio in turno.Servicios
+
+          .col-md-4.subnodo.pb
+            img.img-col(src="/images/#{servicio.imagen}")
+            h3= servicio.nombre
+            p.pb-small= servicio.descripcion
+            p: a.btn.btn-lg.btn-default-inverse(href='/servicios/#{servicio.id}',
+                                role='button')
+              | Ver mas »
+
+

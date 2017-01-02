@@ -1,0 +1,33 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista Áreas
+      a.btn.btn-primary.btn-nuevo(href="/admin/areas/nuevo")
+        | Agregar nueva Área
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Jefe
+          th Descripcion
+          th Telefono
+          th Acción
+        tbody
+          each area in areas
+            tr
+              td= area.id
+              td= area.nombre
+              td= area.jefe
+              td= area.descripcion
+              td= area.telefono
+              td.td-accion
+                a.btn.btn-danger(href="/admin/area/#{area.id}/eliminar")
+                 | Eliminar
+                a.btn.btn-info(href="/admin/area/#{area.id}") Editar
+
+
+

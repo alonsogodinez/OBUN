@@ -1,0 +1,25 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Editar Área
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre", value="#{area.nombre}",
+                          required)
+      .form-group
+        label Jefe
+        input.form-control(type="text",name="jefe", value="#{area.jefe}",
+                          required)
+      .form-group
+        label Descripcion
+        textarea.form-control(type="text",name="descripcion", required)
+          =area.descripcion
+      .form-group
+        label Telefono
+        input.form-control(type="text",name="telefono",
+                          value="#{area.telefono}", required)
+
+      button.btn.btn-lg.btn-success(type="submit") Guardar Datos
+      a.btn.btn-lg.btn-danger(href="/admin/areas") Volver

@@ -1,0 +1,33 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Nuevo trabajador
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",required)
+      .form-group
+        label Apellido
+        input.form-control(type="text",name="apellido", required)
+      .form-group
+        label Cargo
+        input.form-control(type="text",name="cargo", required)
+      .form-group
+        label Especialidad
+        input.form-control(type="text",name="especialidad", required)
+
+      h3 Servicio(s)
+        a.btn.btn-success.btn-nuevo(href="#",data-model="Servicio",
+        data-model-max=5,class="addMore")
+          | Agregar un Servicio
+      .itemAddContainer.addServicio
+        .itemAdd.addServicio
+          .form-group
+            label= "Id"
+            input.form-control(type="number",name="servicios_ids")
+      //.form-group
+      //  label Servicio
+      //  input.form-control(type="number",name="servicio_id")
+      button.btn.btn-lg.btn-success(type="submit") Registrar Trabjador
+      a.btn.btn-lg.btn-danger(href="/admin/trabajadores") Volver

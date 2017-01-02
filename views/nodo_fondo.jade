@@ -1,0 +1,20 @@
+extends layout
+block content
+  .jumbotron
+    .container
+      img.center-block.img-responsive.img-jumbotron(src="/images/#{fondo.imagen}")
+      h1.title-nodo= fondo.nombre
+      h3.title-row2 Beneficios
+      p.pl.pb= fondo.beneficios
+      h3.title-row2 Requisitos
+      p.pl.pb= fondo.requisitos
+      h3.title-row2 Modalidad de Atención
+      p.pl.pb= fondo.modalidad_atencion
+      h3.title-row2 Área encargada
+      - if( fondo.AreaId == 1)
+        a.grande.pl(href="/bienestar-saludable") #{fondo.Area.nombre}
+      - if( fondo.AreaId == 2)
+        a.grande.pl(href="/bienestar-psicologico") #{fondo.Area.nombre}
+      - if( fondo.AreaId == 3)
+        a.grande.pl(href="/bienestar-social") #{fondo.Area.nombre}
+//

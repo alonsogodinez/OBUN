@@ -1,0 +1,52 @@
+extends ../layout
+block content
+  .container.admin-100vh.pb
+    h3.title-create-form Editar Servicio
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",value="#{servicio.nombre}",
+        required)
+      .form-group
+        label Descripcion
+        textarea.form-control(type="text",name="descripcion", required)
+          = servicio.descripcion
+      h3
+        | Area
+      .form-group
+        label Area (Id)
+        input.form-control(type="text",name="area_id",
+                          value="#{servicio.Area.id}",required)
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="area_nombre",
+        value="#{servicio.Area.nombre}",readonly)
+      h3
+        | Turno(s)
+        - if (servicio.Turnos.length < 2)
+          a.btn.btn-success.btn-nuevo(href="#",data-model="Turno",
+                                    data-model-max=2,class="addMore")
+            | Agregar un Turno
+      each turno in servicio.Turnos
+        .form-group
+          label
+          input.form-control.form-control-nowidth(type="text",name="turno_nombre",
+          value="#{turno.nombre}", required, readonly)
+          a.btn.btn-danger#removeItemEdit.removeItemEdit -
+          input.hidden(type="text",name="turnos_ids",
+          value="#{turno.id}", required, readonly)
+          br
+
+
+
+        .itemAddContainer.addTurno.hidden
+          .itemAdd.addTurno
+            .form-group
+              label= "Id"
+              input.form-control(type="number",name="turnos_ids")
+
+      button.btn.btn-lg.btn-success(type="submit") Guardar Datos
+      a.btn.btn-lg.btn-danger(href="/admin/servicios") Volver
+
+

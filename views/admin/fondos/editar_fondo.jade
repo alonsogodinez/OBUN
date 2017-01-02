@@ -1,0 +1,30 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Editar fondo
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",value="#{fondo.nombre}",
+                          required)
+      .form-group
+        label Beneficios
+        textarea.form-control(type="text",name="beneficios", required)
+          =fondo.beneficios
+      .form-group
+        label Requisitos
+        textarea.form-control(type="text",name="requisitos", required)
+          =fondo.requisitos
+      .form-group
+        label Modalidad de Atención
+        input.form-control(type="text",name="modalidad_atencion",
+                          value="#{fondo.modalidad_atencion}", required)
+      .form-group
+        label Area
+        input.form-control(type="text",name="area_nombre",
+                          value="#{fondo.Area.nombre}", required)
+        input.hidden.form-control(type="number",value="#{fondo.Area.id}",
+                          name="area_id")
+      button.btn.btn-lg.btn-success(type="submit") Guardar Datos
+      a.btn.btn-lg.btn-danger(href="/admin/fondos") Volver

@@ -1,0 +1,33 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista de Fondos
+      a.btn.btn-primary.btn-nuevo(href="/admin/fondos/nuevo")
+        | Agregar nuevo fondo
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Beneficios
+          th Requisitos
+          th Modalidad de atención
+          th Area
+          th Accion
+        tbody
+          each fondo in fondos
+            tr
+              td= fondo.id
+              td= fondo.nombre
+              td= fondo.beneficios
+              td= fondo.requisitos
+              td= fondo.modalidad_atencion
+              td= fondo.Area.nombre
+              td.td-accion
+                a.btn.btn-danger(href="/admin/fondo/#{fondo.id}/eliminar")
+                  | Eliminar
+                a.btn.btn-info(href="/admin/fondo/#{fondo.id}") Editar
+//

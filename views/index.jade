@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .jumbotron
+    .container
+      img.center-block.img-responsive.img-jumbotron(src="/images/bienestarunjbg.jpg")
+      h1 OFICINA DE BIENESTAR UNIVERSITARIO
+      p
+        | La Oficina de Bienestar Universitario, busca contribuir en la formacion integral del estudiante, desarrollando programas y servicios que permita mejorar las condiciones de estudio y alcanzar la formación académica y su pleno desarrollo como personas
+  .container
+
+    .row
+      each area,index in areas
+
+        .col-md-4.pb
+          - if (area.id == 1)
+            img.img-col(src="/images/bienestarsaludable.jpeg")
+          - if (area.id == 2)
+            img.img-col(src="/images/bienestarpsicologico.jpg")
+          - if (area.id == 3)
+            img.img-col(src="/images/apoyosocial.png")
+          //img.img-col(src="/images/#{area.imagen}")
+          h2= area.nombre
+          p.pb-small= area.descripcion
+          - if (area.id == 1)
+            p: a.btn.btn-lg.btn-default(href="/bienestar-saludable") Ver mas »
+          - if (area.id == 2)
+            p: a.btn.btn-lg.btn-default(href="/bienestar-psicologico") Ver mas »
+          - if (area.id == 3)
+            p: a.btn.btn-lg.btn-default(href="/bienestar-social") Ver mas »
+

@@ -1,0 +1,29 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Nuevo Servicio
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",required)
+      .form-group
+        label Descripcion
+        textarea.form-control(type="text",name="descripcion", required)
+      .form-group
+        label Area (Id)
+        input.form-control(type="text",name="area_id",required)
+
+      h3 Turno(s)
+        a.btn.btn-success.btn-nuevo(href="#",data-model="Turno",
+        data-model-max=2,class="addMore")
+          | Agregar un Turno
+      .itemAddContainer.addTurno
+        .itemAdd.addTurno
+          .form-group
+            label= "Id"
+            input.form-control(type="number",name="turnos_ids")
+      button.btn.btn-lg.btn-success(type="submit") Registrar Servicio
+      a.btn.btn-lg.btn-danger(href="/admin/servicios") Volver
+
+

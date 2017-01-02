@@ -1,0 +1,37 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista de Trabajadores
+      a.btn.btn-primary.btn-nuevo(href="/admin/trabajadores/nuevo")
+        | Agregar nuevo trabajador
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Apellido
+          th Cargo
+          th Especialidad
+          th Servicio
+          th Acción
+        tbody
+          each trabajador in trabajadores
+            tr
+              td= trabajador.id
+              td= trabajador.nombre
+              td= trabajador.apellido
+              td= trabajador.cargo
+              td= trabajador.especialidad
+              td
+                each servicio in trabajador.Servicios
+                  =servicio.nombre
+                  br
+              td.td-accion
+                a.btn.btn-danger(href="/admin/trabajador/#{trabajador.id}/eliminar")
+                  | Eliminar
+                a.btn.btn-info(href="/admin/trabajador/#{trabajador.id}")
+                  | Editar
+//

@@ -1,0 +1,32 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Editar Beca
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",
+                          value="#{beca.nombre}", required)
+      .form-group
+        label Beneficios
+        textarea.form-control(type="text",name="beneficios", required)
+          = beca.beneficios
+      .form-group
+        label Requisitos
+        textarea.form-control(type="text",name="requisitos", required)
+          = beca.requisitos
+      .form-group
+        label Tipo de Beca
+        input.form-control(type="text",name="tipo_beca",value="#{beca.tipo_beca}",
+                          required)
+      .form-group
+        label Area
+        input.form-control(type="text",name="area_name",
+                          value="#{beca.Area.nombre}")
+        input.hidden.form-control(type="number",value="#{beca.Area.id}",
+        name="area_id")
+
+      button.btn.btn-lg.btn-success(type="submit") Guardar Datos
+      a.btn.btn-lg.btn-danger(href="/admin/becas") Volver
+

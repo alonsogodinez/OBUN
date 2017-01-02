@@ -1,0 +1,9 @@
+{
+  "postgres": {
+    "username": "heroku-user",
+    "password": "heroku-pass",
+    "database": "heroku-db",
+    "host": "heroku-host-db",
+    "dialect": "postgres"
+  }
+}

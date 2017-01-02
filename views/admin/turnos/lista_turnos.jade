@@ -1,0 +1,33 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista Turnos
+      a.btn.btn-primary.btn-nuevo.disabled(href="/admin/turnos/nuevo")
+        | Agregar nuevo Turno
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Hora de Inicio
+          th Hora de Fin
+          th Acción
+
+        tbody
+          each turno in turnos
+            tr
+              td= turno.id
+              td= turno.nombre
+              td= turno.hora_inicio
+              td= turno.hora_fin
+              td.td-accion
+                a.btn.btn-danger(href="/admin/turno/#{turno.id}/eliminar")
+                  | Eliminar
+                a.btn.btn-info(href="/admin/turno/#{turno.id}")
+                  | Editar
+//
+
+

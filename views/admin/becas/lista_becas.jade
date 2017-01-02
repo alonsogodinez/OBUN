@@ -1,0 +1,32 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista de Becas
+      a.btn.btn-primary.btn-nuevo(href="/admin/becas/nueva")
+        | Agregar nueva beca
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Beneficios
+          th Requisitos
+          th Tipo de Beca
+          th Area
+          th Accion
+        tbody
+          each beca in becas
+            tr
+              td= beca.id
+              td= beca.nombre
+              td= beca.beneficios
+              td= beca.requisitos
+              td= beca.tipo_beca
+              td= beca.Area.nombre
+              td.td-accion
+                a.btn.btn-danger(href="/admin/beca/#{beca.id}/eliminar") Eliminar
+                a.btn.btn-info(href="/admin/beca/#{beca.id}") Editar
+

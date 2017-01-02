@@ -1,0 +1,35 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Lista de Servicios
+      a.btn.btn-primary.btn-nuevo(href="/admin/servicios/nuevo")
+        | Agregar nuevo servicio
+      a.btn.btn-danger.btn-nuevo(href="/admin")
+        | Volver
+    br
+    .table-responsive
+      table.table
+        thead
+          th Id
+          th Nombre
+          th Descripcion
+          th Area
+          th Turno
+          th Acción
+        tbody
+          each servicio in servicios
+            tr
+              td= servicio.id
+              td= servicio.nombre
+              td= servicio.descripcion
+              td= servicio.Area.nombre
+              td
+                each turno in servicio.Turnos
+                 =turno.nombre
+                  br
+              td.td-accion
+                a.btn.btn-danger(href="/admin/servicio/#{servicio.id}/eliminar")
+                  | Eliminar
+                a.btn.btn-info(href="/admin/servicio/#{servicio.id}") Editar
+
+

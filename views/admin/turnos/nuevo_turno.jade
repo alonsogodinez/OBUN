@@ -1,0 +1,18 @@
+extends ../layout
+block content
+  .container.admin-100vh
+    h3.title-create-form Nuevo Turno
+    br
+    form.container(method="POST")
+      .form-group
+        label Nombre
+        input.form-control(type="text",name="nombre",required)
+      .form-group
+        label Hora de Inicio
+        input.form-control(type="text",name="hora_inicio",required)
+      .form-group
+        label Hora de Fin
+        input.form-control(type="text",name="hora_fin", required)
+
+      button.btn.btn-lg.btn-success(type="submit") Registrar Turno
+      a.btn.btn-lg.btn-danger(href="/admin/turnos") Volver

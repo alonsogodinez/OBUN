@@ -1,0 +1,26 @@
+extends layout
+block content
+
+
+  .jumbotron
+    .container
+      img.center-block.img-responsive.img-jumbotron(src="/images/#{servicio.imagen}")
+      h1.title-nodo= servicio.nombre
+      p.pb= servicio.descripcion
+      h3.title-row2 Turnos Disponibles
+      ul.pl
+        each turno in servicio.Turnos
+          li.grande #{turno.nombre}:  #{turno.hora_inicio} - #{turno.hora_fin}
+
+      h3.title-row2 Área encargada
+      - if( servicio.AreaId == 1)
+        a.grande.pl(href="/bienestar-saludable") #{servicio.Area.nombre}
+      - if( servicio.AreaId == 2)
+        a.grande.pl(href="/bienestar-psicologico") #{servicio.Area.nombre}
+      - if( servicio.AreaId == 3)
+        a.grande.pl(href="/bienestar-social") #{servicio.Area.nombre}
+
+      h3.title-row2 Equipo de trabajadores
+      ul.pl
+        each trabajador in servicio.Trabajadors
+          li.grande #{trabajador.nombre} #{trabajador.apellido} - #{trabajador.cargo}
